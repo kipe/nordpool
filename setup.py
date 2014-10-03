@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 setup(
     name='nordpool',
@@ -10,7 +13,6 @@ setup(
     url='https://github.com/kipe/nordpool',
     packages=[
         'nordpool',
-        'nordpool.elspot',
     ],
     install_requires=[
         'python-dateutil>=2.2',
