@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-
+from __future__ import unicode_literals
 import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
