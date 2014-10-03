@@ -1,4 +1,4 @@
 nordpool
 ========
 
-Python library for fetching 
+Python library for Nordpool fetchin spot prices.
