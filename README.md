@@ -1,7 +1,7 @@
 nordpool 
 ========
 
-Python library for Nordpool fetching spot prices.
+Python library for fetching Nord Pool spot prices.
 
 
 #### Installing bleeding edge version from GitHub
