@@ -1,6 +1,9 @@
 #!/usr/bin/env python
-from nordpool import elspot
-from pprint import pprint
 
+# Import library for fetching Elspot data
+from nordpool import elspot
+
+# Initialize class for fetching Elspot prices
 prices = elspot.Prices()
-pprint(prices.hourly(areas=['FI']))
+# Fetch hourly prices for Finland and print the resulting dictionary
+print(prices.hourly(areas=['FI']))
