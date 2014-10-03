@@ -24,3 +24,30 @@ prices = elspot.Prices()
 # Fetch hourly prices for Finland and print the resulting dictionary
 pprint(prices.hourly(areas=['FI']))
 ```
+
+###### Output
+```
+{u'areas': {
+    u'FI': {
+        u'Average': 32.54,
+        u'Max': 37.31,
+        u'Min': 30.04,
+        u'Off-peak 1': 30.74,
+        u'Off-peak 2': 32.07,
+        u'Peak': 33.9,
+        u'values': [
+            {u'end': datetime.datetime(2014, 10, 3, 23, 0, tzinfo=<UTC>),
+             u'start': datetime.datetime(2014, 10, 3, 22, 0, tzinfo=<UTC>),
+             u'value': 31.2},
+            {u'end': datetime.datetime(2014, 10, 4, 0, 0, tzinfo=<UTC>),
+             u'start': datetime.datetime(2014, 10, 3, 23, 0, tzinfo=<UTC>),
+             u'value': 30.68},
+            ... SNIP ...
+            {u'end': datetime.datetime(2014, 10, 4, 22, 0, tzinfo=<UTC>),
+             u'start': datetime.datetime(2014, 10, 4, 21, 0, tzinfo=<UTC>),
+             u'value': 30.82}]}},
+ u'currency': u'EUR',
+ u'end': datetime.datetime(2014, 10, 4, 22, 0, tzinfo=<UTC>),
+ u'start': datetime.datetime(2014, 10, 3, 22, 0, tzinfo=<UTC>),
+ u'updated': datetime.datetime(2014, 10, 3, 10, 42, 42, 110000, tzinfo=<UTC>)}
+```
