@@ -16,7 +16,7 @@ class Prices(object):
 
     API_URL = 'http://www.nordpoolspot.com/api/marketdata/page/%i'
 
-    def __init__(self, currency='EUR'):
+    def __init__(self, currency='SEK'):
         self.currency = currency
 
     def __parse_dt(self, time_str):
