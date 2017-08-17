@@ -1,7 +1,7 @@
 nordpool
 ========
 
-Python library for fetching Nord Pool spot prices.
+Python library for fetching Nord Pool Elspot ans Elbas prices.
 
 
 #### Installing bleeding edge version from GitHub
