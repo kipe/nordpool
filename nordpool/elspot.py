@@ -3,10 +3,10 @@ from __future__ import unicode_literals
 import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
-from pytz import timezone, utc
+from .base import Base
 
 
-class Prices(object):
+class Prices(Base):
     ''' Class for fetching Nord Pool Elspot prices. '''
     HOURLY = 10
     DAILY = 11
@@ -15,23 +15,6 @@ class Prices(object):
     YEARLY = 14
 
     API_URL = 'http://www.nordpoolspot.com/api/marketdata/page/%i'
-
-    def __init__(self, currency='EUR'):
-        self.currency = currency
-
-    def __parse_dt(self, time_str):
-        ''' Parse datetimes to UTC from Stockholm time, which Nord Pool uses. '''
-        time = parse_dt(time_str)
-        if time.tzinfo is None:
-            return timezone('Europe/Stockholm').localize(time).astimezone(utc)
-        return time
-
-    def __conv_to_float(self, s):
-        ''' Convert numbers to float. Return infinity, if conversion fails. '''
-        try:
-            return float(s.replace(',', '.'))
-        except ValueError:
-            return float('inf')
 
     def _parse_json(self, data, areas=[]):
         '''
@@ -54,15 +37,15 @@ class Prices(object):
         currency = data['currency']
         # All relevant data is in data['data']
         data = data['data']
-        start_time = self.__parse_dt(data['DataStartdate'])
-        end_time = self.__parse_dt(data['DataEnddate'])
-        updated = self.__parse_dt(data['DateUpdated'])
+        start_time = self._parse_dt(data['DataStartdate'])
+        end_time = self._parse_dt(data['DataEnddate'])
+        updated = self._parse_dt(data['DateUpdated'])
 
         area_data = {}
         # Loop through response rows
         for r in data['Rows']:
-            row_start_time = self.__parse_dt(r['StartTime'])
-            row_end_time = self.__parse_dt(r['EndTime'])
+            row_start_time = self._parse_dt(r['StartTime'])
+            row_end_time = self._parse_dt(r['EndTime'])
 
             # Loop through columns
             for c in r['Columns']:
@@ -81,13 +64,13 @@ class Prices(object):
                 # with 'IsExtraRow' -marking
                 if r['IsExtraRow']:
                     # Update extra data to dictionary
-                    area_data[name][r['Name']] = self.__conv_to_float(c['Value'])
+                    area_data[name][r['Name']] = self._conv_to_float(c['Value'])
                 else:
                     # Append dictionary to value list
                     area_data[name]['values'].append({
                         'start': row_start_time,
                         'end': row_end_time,
-                        'value': self.__conv_to_float(c['Value']),
+                        'value': self._conv_to_float(c['Value']),
                     })
 
         return {
