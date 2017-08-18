@@ -1,0 +1,3 @@
+python-dateutil>=2.6.1
+pytz>=2017.2
+requests>=2.18.4
