@@ -22,7 +22,9 @@ class Prices(object):
     def __parse_dt(self, time_str):
         ''' Parse datetimes to UTC from Stockholm time, which Nord Pool uses. '''
         time = parse_dt(time_str)
-        return timezone('Europe/Stockholm').localize(time).astimezone(utc)
+        if time.tzinfo is None:
+            return timezone('Europe/Stockholm').localize(time).astimezone(utc)
+        return time
 
     def __conv_to_float(self, s):
         ''' Convert numbers to float. Return infinity, if conversion fails. '''

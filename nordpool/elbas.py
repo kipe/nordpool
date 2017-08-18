@@ -3,32 +3,13 @@ from __future__ import unicode_literals
 import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
-from pytz import timezone, utc
+from . import elspot
 
 
-class Prices(object):
+class Prices(elspot.Prices):
     ''' Class for fetching Nord Pool Elsbas prices. '''
     HOURLY = 194
-
     API_URL = 'http://www.nordpoolspot.com/api/marketdata/page/%i'
-
-    def __init__(self, currency='EUR'):
-        self.currency = currency
-
-    def __parse_dt(self, time_str):
-        ''' Parse datetimes to UTC from Stockholm time, which Nord Pool uses. '''
-        time = parse_dt(time_str)
-        if time.tzinfo is None:
-            return timezone('Europe/Stockholm').localize(time).astimezone(utc)
-        if time.tzinfo is not None:
-            return time
-
-    def __conv_to_float(self, s):
-        ''' Convert numbers to float. Return infinity, if conversion fails. '''
-        try:
-            return float(s.replace(',', '.'))
-        except ValueError:
-            return float('inf')
 
     def _parse_json(self, data, columns, areas):
         '''
