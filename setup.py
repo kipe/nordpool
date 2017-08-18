@@ -15,7 +15,7 @@ setup(
         'nordpool',
     ],
     install_requires=[
-        'python-dateutil>=2.2',
-        'pytz>=2014.7',
-        'requests>=2.4.1',
+        'python-dateutil>=2.6.1',
+        'pytz>=2017.2',
+        'requests>=2.18.4',
     ])
