@@ -6,7 +6,7 @@ except ImportError:
 
 setup(
     name='nordpool',
-    version='0.01',
+    version='0.02',
     description='Python library for fetching Nord Pool spot prices.',
     author='Kimmo Huoman',
     author_email='kipenroskaposti@gmail.com',
