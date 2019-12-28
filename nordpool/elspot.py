@@ -143,7 +143,7 @@ class Prices(Base):
         return self.fetch(self.YEARLY, end_date, areas)
 
 
-class AioPrices(elspot.Prices):
+class AioPrices(Prices):
     def __init__(self, currency, client):
 
         super().__init__(currency)
