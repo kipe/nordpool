@@ -19,6 +19,6 @@ class Base(object):
     def _conv_to_float(self, s):
         ''' Convert numbers to float. Return infinity, if conversion fails. '''
         try:
-            return float(s.replace(',', '.'))
+            return float(s.replace(',', '.').replace(" ", ""))
         except ValueError:
             return float('inf')
