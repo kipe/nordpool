@@ -9,7 +9,7 @@ from .base import Base
 class Prices(Base):
     ''' Class for fetching Nord Pool Elsbas prices. '''
     HOURLY = 194
-    API_URL = 'http://www.nordpoolspot.com/api/marketdata/page/%i'
+    API_URL = 'https://www.nordpoolgroup.com/api/marketdata/page/%i'
 
     def _parse_json(self, data, columns, areas):
         '''
