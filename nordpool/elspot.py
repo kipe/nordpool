@@ -14,7 +14,7 @@ class Prices(Base):
     MONTHLY = 13
     YEARLY = 14
 
-    API_URL = 'http://www.nordpoolspot.com/api/marketdata/page/%i'
+    API_URL = 'https://www.nordpoolgroup.com/api/marketdata/page/%i'
 
     def _parse_json(self, data, areas=[]):
         '''
