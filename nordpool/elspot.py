@@ -59,14 +59,6 @@ AREA_TO_COUNTRY = {
 }
 
 
-def get_page(area, data_type):
-    """Return page given area and data type"""
-    if isinstance(data_type, NordpoolDataset):
-        data_type = data_type.value
-    country = AREA_TO_COUNTRY[area]
-    return COUNTRY_BASE_PAGE[country] + data_type - 10 + 1
-
-
 
 class Prices(Base):
     ''' Class for fetching Nord Pool Elspot prices. '''
@@ -203,6 +195,19 @@ class Prices(Base):
     def yearly(self, end_date=None, areas=[]):
         ''' Helper to fetch yearly data, see Prices.fetch() '''
         return self.fetch(self.YEARLY, end_date, areas)
+
+    @staticmethod
+    def get_page(country=None, area=None, data_type=None):
+        """Return page given countryarea and data type"""
+        if country is None and area is None:
+            raise ValueError("Country or area must be provided")
+        if data_type is None:
+            raise ValueError("Missing data type")
+        if isinstance(data_type, NordpoolDataset):
+            data_type = data_type.value
+        if country is None:
+            country = AREA_TO_COUNTRY[area]
+        return COUNTRY_BASE_PAGE[country] + data_type - 10 + 1
 
 
 class AioPrices(Prices):
