@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
-from .base import Base
+from .base import Base, CurrencyMismatch
 
 
 class Prices(Base):
@@ -35,6 +35,11 @@ class Prices(Base):
 
         # Update currency from data
         currency = data['currency']
+
+        # Ensure that the provided currency match the requested one
+        if currency != self.currency:
+            raise CurrencyMismatch
+
         # All relevant data is in data['data']
         data = data['data']
         start_time = self._parse_dt(data['DataStartdate'])
