@@ -7,7 +7,7 @@ from .base import Base
 from enum import Enum
 
 
-class NordpoolDataset(Enum):
+class NordpoolDataType(Enum):
     """Nordpool dataset page offsets"""
     HOURLY = 10
     DAILY = 11
@@ -62,11 +62,11 @@ AREA_TO_COUNTRY = {
 
 class Prices(Base):
     ''' Class for fetching Nord Pool Elspot prices. '''
-    HOURLY = NordpoolDataset.HOURLY.value
-    DAILY = NordpoolDataset.DAILY.value
-    WEEKLY = NordpoolDataset.WEEKLY.value
-    MONTHLY = NordpoolDataset.MONTHLY.value
-    YEARLY = NordpoolDataset.YEARLY.value
+    HOURLY = NordpoolDataType.HOURLY.value
+    DAILY = NordpoolDataType.DAILY.value
+    WEEKLY = NordpoolDataType.WEEKLY.value
+    MONTHLY = NordpoolDataType.MONTHLY.value
+    YEARLY = NordpoolDataType.YEARLY.value
 
     API_URL = 'https://www.nordpoolgroup.com/api/marketdata/page/%i'
 
@@ -200,13 +200,19 @@ class Prices(Base):
     def get_page(country=None, area=None, data_type=None):
         """Return page given countryarea and data type"""
         if country is None and area is None:
-            raise ValueError("Country or area must be provided")
+            raise ValueError("country or area must be provided")
         if data_type is None:
-            raise ValueError("Missing data type")
-        if isinstance(data_type, NordpoolDataset):
+            raise ValueError("data_type must be provided")
+
+        # ensure a defined a data_type
+        if isinstance(data_type, NordpoolDataType):
             data_type = data_type.value
+        else:
+            data_type = NordpoolDataType(data_type).value
+
         if country is None:
             country = AREA_TO_COUNTRY[area]
+
         return COUNTRY_BASE_PAGE[country] + data_type - 10 + 1
 
 
