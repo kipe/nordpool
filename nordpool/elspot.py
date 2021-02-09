@@ -4,15 +4,77 @@ import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
 from .base import Base
+from enum import Enum
 
 
-class Prices(Base):
-    ''' Class for fetching Nord Pool Elspot prices. '''
+class NordpoolDataset(Enum):
+    """Nordpool dataset page offsets"""
     HOURLY = 10
     DAILY = 11
     WEEKLY = 12
     MONTHLY = 13
     YEARLY = 14
+
+
+COUNTRY_BASE_PAGE = {
+    "SYS": 16,
+    "NO": 22,
+    "SE": 28,
+    "FI": 34,
+    "DK": 40,
+    "EE": 46,
+    "LT": 52,
+    "LV": 58,
+    "AT": 298577,
+    "BE": 298735,
+    "DE-LU": 299564,
+    "FR": 299567,
+    "NL": 299570
+}
+
+AREA_TO_COUNTRY = {
+    "SYS": "SYS",
+    "SE1": "SE",
+    "SE2": "SE",
+    "SE3": "SE",
+    "SE4": "SE",
+    "FI": "FI",
+    "DK1": "DK",
+    "DK2": "DK",
+    "OSLO": "NO",
+    "KR.SAND": "NO",
+    "BERGEN": "NO",
+    "MOLDE": "NO",
+    "TR.HEIM": "NO",
+    "TROMSØ": "NO",
+    "EE": "EE",
+    "LV": "LV",
+    "LT": "LT",
+    "AT": "AT",
+    "BE": "BE",
+    "DE-LU": "DE-LU",
+    "FR": "FR",
+    "NL": "NL",
+    "PL ": "PL"
+}
+
+
+def get_page(area, data_type):
+    """Return page given area and data type"""
+    if isinstance(data_type, NordpoolDataset):
+        data_type = data_type.value
+    country = AREA_TO_COUNTRY[area]
+    return COUNTRY_BASE_PAGE[country] + data_type - 10 + 1
+
+
+
+class Prices(Base):
+    ''' Class for fetching Nord Pool Elspot prices. '''
+    HOURLY = NordpoolDataset.HOURLY.value
+    DAILY = NordpoolDataset.DAILY.value
+    WEEKLY = NordpoolDataset.WEEKLY.value
+    MONTHLY = NordpoolDataset.MONTHLY.value
+    YEARLY = NordpoolDataset.YEARLY.value
 
     API_URL = 'https://www.nordpoolgroup.com/api/marketdata/page/%i'
 
