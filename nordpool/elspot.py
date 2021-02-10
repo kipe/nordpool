@@ -9,11 +9,11 @@ from enum import Enum
 
 class NordpoolDataType(Enum):
     """Nordpool dataset page offsets"""
-    HOURLY = 10
-    DAILY = 11
-    WEEKLY = 12
-    MONTHLY = 13
-    YEARLY = 14
+    HOURLY = 1
+    DAILY = 2
+    WEEKLY = 3
+    MONTHLY = 4
+    YEARLY = 5
 
 
 COUNTRY_BASE_PAGE = {
@@ -62,11 +62,11 @@ AREA_TO_COUNTRY = {
 
 class Prices(Base):
     ''' Class for fetching Nord Pool Elspot prices. '''
-    HOURLY = NordpoolDataType.HOURLY.value
-    DAILY = NordpoolDataType.DAILY.value
-    WEEKLY = NordpoolDataType.WEEKLY.value
-    MONTHLY = NordpoolDataType.MONTHLY.value
-    YEARLY = NordpoolDataType.YEARLY.value
+    HOURLY = NordpoolDataType.HOURLY.value + 9
+    DAILY = NordpoolDataType.DAILY.value + 9
+    WEEKLY = NordpoolDataType.WEEKLY.value + 9
+    MONTHLY = NordpoolDataType.MONTHLY.value + 9
+    YEARLY = NordpoolDataType.YEARLY.value + 9
 
     API_URL = 'https://www.nordpoolgroup.com/api/marketdata/page/%i'
 
@@ -206,14 +206,14 @@ class Prices(Base):
 
         # ensure a defined a data_type
         if isinstance(data_type, NordpoolDataType):
-            data_type = data_type.value
+            page_offset = data_type.value
         else:
-            data_type = NordpoolDataType(data_type).value
+            page_offset = NordpoolDataType(data_type).value
 
         if country is None:
             country = AREA_TO_COUNTRY[area]
 
-        return COUNTRY_BASE_PAGE[country] + data_type - 10 + 1
+        return COUNTRY_BASE_PAGE[country] + page_offset
 
 
 class AioPrices(Prices):
