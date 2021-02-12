@@ -4,6 +4,10 @@ from dateutil.parser import parse as parse_dt
 from pytz import timezone, utc
 
 
+class CurrencyMismatch(ValueError):
+    pass
+
+
 class Base(object):
     ''' Class for fetching Nord Pool Elspot prices. '''
     def __init__(self, currency='EUR'):
