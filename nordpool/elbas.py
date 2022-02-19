@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
+from socket import timeout
 import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
@@ -101,7 +102,7 @@ class Prices(Base):
             'currency': self.currency,
             'endDate': end_date.strftime('%d-%m-%Y'),
             'entityName': ''.join(areas),
-        })
+        }, timeout=self.timeout)
         # Return JSON response
         return r.json()
 

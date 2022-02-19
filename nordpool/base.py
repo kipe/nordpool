@@ -10,8 +10,9 @@ class CurrencyMismatch(ValueError):
 
 class Base(object):
     ''' Class for fetching Nord Pool Elspot prices. '''
-    def __init__(self, currency='EUR'):
+    def __init__(self, currency='EUR', timeout=None):
         self.currency = currency
+        self.timeout = timeout
 
     def _parse_dt(self, time_str):
         ''' Parse datetimes to UTC from Stockholm time, which Nord Pool uses. '''
