@@ -48,7 +48,7 @@ class Prices(Base):
             if r['Name'] is None:
                 continue
             else:
-                name = r['Name'].split('-')
+                name = ' '.join(r['Name'].split('-')).split(' ')
             # Picks only "PH" product (hourly)
             if not (name[0] == u'PH'):
                 continue
