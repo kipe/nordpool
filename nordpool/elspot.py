@@ -99,7 +99,7 @@ class Prices(Base):
         r = requests.get(self.API_URL % data_type, params={
             'currency': self.currency,
             'endDate': end_date.strftime('%d-%m-%Y'),
-        })
+        }, timeout=self.timeout)
         # Return JSON response
         return r.json()
 
