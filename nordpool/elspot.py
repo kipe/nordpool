@@ -34,7 +34,10 @@ class Prices(Base):
             areas = list(areas)
 
         # Update currency from data
-        currency = data['currency']
+        if 'currency' in data:
+            currency = data['currency']
+        else:
+            exit()
 
         # Ensure that the provided currency match the requested one
         if currency != self.currency:
