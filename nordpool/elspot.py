@@ -4,6 +4,7 @@ import requests
 from datetime import date, datetime, timedelta
 from dateutil.parser import parse as parse_dt
 from .base import Base, CurrencyMismatch
+from math import isinf
 
 
 class Prices(Base):
@@ -106,12 +107,26 @@ class Prices(Base):
         start_time = self._parse_dt(data['DataStartdate'])
         end_time = self._parse_dt(data['DataEnddate'])
         updated = self._parse_dt(data['DateUpdated'])
+        units = data['Units']
 
         area_data = {}
+        daylight_saving_adjust = False
         # Loop through response rows
         for r in data['Rows']:
             row_start_time = self._parse_dt(r['StartTime'])
             row_end_time = self._parse_dt(r['EndTime'])
+            if daylight_saving_adjust:
+                # After daylight saving is detected then adjust the following hour
+                # and then reset the daylight saving flag
+                row_start_time -= timedelta(hours=1)
+                row_end_time -= timedelta(hours=1)
+                daylight_saving_adjust = False
+            else:
+                # When daylight saving occur there will be a 2 hour difference between
+                # start and end times
+                daylight_saving_adjust = timedelta(hours=1.5) < row_end_time - row_start_time
+                if daylight_saving_adjust:
+                    row_end_time -= timedelta(hours=1)
 
             # Loop through columns
             for c in r['Columns']:
@@ -128,36 +143,36 @@ class Prices(Base):
 
                 # Time based and average, max, min etc rows are separated
                 # with 'IsExtraRow' -marking
-                if r['IsExtraRow']:
-                    # Update extra data to dictionary
-                    area_data[name][r['Name']] = self._conv_to_float(c['Value'])
-                else:
-                    # Append dictionary to value list
-                    area_data[name]['values'].append({
-                        'start': row_start_time,
-                        'end': row_end_time,
-                        'value': self._conv_to_float(c['Value']),
-                    })
+                value = self._conv_to_float(c['Value'])
+                if not isinf(value):
+                    if r['IsExtraRow']:
+                        # Update extra data to dictionary
+                        area_data[name][r['Name']] = value
+                    else:
+                        # Append dictionary to value list
+                        area_data[name]['values'].append({
+                            'start': row_start_time,
+                            'end': row_end_time,
+                            'value': value,
+                        })
 
         return {
             'start': start_time,
             'end': end_time,
             'updated': updated,
             'currency': currency,
-            'areas': area_data
+            'areas': area_data,
+            'units': units
         }
 
     def _fetch_json(self, country, type, end_date=None):
         ''' Fetch JSON from API '''
         params = {'currency': self.currency}
-        # If end_date isn't set, default to tomorrow
-        if end_date is None:
-            end_date = date.today() + timedelta(days=1)
         # If end_date isn't a date or datetime object, try to parse a string
         if end_date is not None:
             if not isinstance(end_date, date) and not isinstance(end_date, datetime):
                 end_date = parse_dt(end_date)
-            params['endDate'] = end_date
+            params['endDate'] = end_date.strftime('%d-%m-%Y')
 
         # Create request to API
         r = requests.get(self.API_URL % self.page_id[country][type], 
