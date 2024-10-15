@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 from datetime import date, datetime, timedelta
 
 from pytz import utc
@@ -203,21 +204,24 @@ class Prices(Base):
 
 
 class AioPrices(Prices):
+    """Class for fetching Nord Pool Elspot prices."""
+
+    # pylint: disable=invalid-overridden-method
+
     def __init__(self, currency, client):
 
         super().__init__(currency)
         self.client = client
 
     async def _io(self, url, params):
-        import inspect
+        import inspect  # pylint: disable=import-outside-toplevel
 
         resp = await self.client.get(url, params=params)
         # aiohttp
         if inspect.isawaitable(resp.json()):
             return await resp.json()
-        else:
-            # Httpx and asks
-            return resp.json()
+        # Httpx and asks
+        return resp.json()
 
     async def _fetch_json(self, data_type, end_date=None, areas=None):
         """Fetch JSON from API"""

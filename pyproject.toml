@@ -9,7 +9,7 @@ homepage = "https://github.com/kipe/nordpool"
 repository = "https://github.com/kipe/nordpool"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.10,<3.13"
 python-dateutil = "^2.9.0.post0"
 requests = "^2.32.3"
 pytz = "^2024.2"
@@ -22,6 +22,8 @@ flake8 = "^7.1.1"
 vcrpy = "^6.0.2"
 time-machine = "^2.16.0"
 coverage = "^7.6.3"
+coveralls = "^4.0.1"
+pylint = "^3.3.1"
 
 [build-system]
 requires = ["poetry-core"]

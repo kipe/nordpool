@@ -1,12 +1,13 @@
+# pylint: disable=missing-module-docstring
 from dateutil.parser import parse as parse_dt
 from pytz import timezone, utc
 
 
-class CurrencyMismatch(ValueError):
+class CurrencyMismatch(ValueError):  # pylint: disable=missing-class-docstring
     pass
 
 
-class Base(object):
+class Base:  # pylint: disable=too-few-public-methods
     """Class for fetching Nord Pool Elspot prices."""
 
     def __init__(self, currency="EUR", timeout=None):
