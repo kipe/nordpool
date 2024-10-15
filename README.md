@@ -1,19 +1,19 @@
-nordpool
-========
+# nordpool
 
 Python library for fetching Nord Pool Elspot and Elbas prices.
-
 
 #### Installing bleeding edge version from GitHub
 
 ##### Installation
+
 `pip install git+https://github.com/kipe/nordpool.git`
 
 ##### Upgrading
+
 `pip install -U git+https://github.com/kipe/nordpool.git`
 
-
 #### Example
+
 ```
 # Import library for fetching Elspot data
 from nordpool import elspot, elbas
@@ -34,7 +34,8 @@ pprint(prices_bas.hourly(areas=['FI']))
 ```
 
 ###### Output
-```
+
+```python
 {u'areas': {
     u'FI': {
         u'Average': 32.54,
