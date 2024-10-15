@@ -1,8 +1,5 @@
-# -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
+# pylint: disable=missing-module-docstring
 from datetime import date, datetime, timedelta
-from socket import timeout
 
 import requests
 from dateutil.parser import parse as parse_dt
@@ -16,7 +13,7 @@ class Prices(Base):
     HOURLY = 194
     API_URL = "https://www.nordpoolgroup.com/api/marketdata/page/%i"
 
-    def _parse_json(self, data, columns, areas):
+    def _parse_json(self, data, columns, areas):  # pylint: disable=too-many-branches
         """
         Parse json response from fetcher.
         Returns dictionary with
@@ -51,10 +48,9 @@ class Prices(Base):
             # Loop through columns
             if r["Name"] is None:
                 continue
-            else:
-                name = " ".join(r["Name"].split("-")).split(" ")
+            name = " ".join(r["Name"].split("-")).split(" ")
             # Picks only "PH" product (hourly)
-            if not (name[0] == "PH"):
+            if not name[0] == "PH":
                 continue
             row_start_time = self._parse_dt(
                 "-".join([name[1], format(int(name[2]) - 1, "02")])
@@ -118,7 +114,7 @@ class Prices(Base):
         # Return JSON response
         return r.json()
 
-    def fetch(self, data_type, columns, end_date=None, areas=[]):
+    def fetch(self, data_type, columns, end_date=None, areas=None):
         """
         Fetch data from API.
         Inputs:
@@ -145,8 +141,10 @@ class Prices(Base):
     def hourly(
         self,
         end_date=None,
-        areas=[],
-        columns=["Product", "High", "Low", "Last", "Avg", "Volume"],
+        areas=None,
+        columns=None,
     ):
         """Helper to fetch hourly data, see Prices.fetch()"""
+        if columns is None:
+            columns = ["Product", "High", "Low", "Last", "Avg", "Volume"]
         return self.fetch(self.HOURLY, columns, end_date, areas)
