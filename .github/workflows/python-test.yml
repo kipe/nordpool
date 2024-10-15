@@ -39,11 +39,11 @@ jobs:
       - name: Run tests
         run: |
           poetry run coverage run -m unittest discover -b
-      - name: Coveralls
-        uses: AndreMiras/coveralls-python-action@develop
-        with:
-          parallel: true
-          flag-name: run-${{ matrix.test_number }}
+      # - name: Coveralls
+      #   uses: AndreMiras/coveralls-python-action@develop
+      #   with:
+      #     parallel: true
+      #     flag-name: run-${{ matrix.test_number }}
 
   finish:
     needs: test
