@@ -134,7 +134,7 @@ class Prices(Base):
 
         api_url = f"{self.API_URL}/{endpoint}"
         params = {
-            "currency": "EUR",
+            "currency": self.currency,
             "market": "DayAhead",
             "deliveryArea": ",".join(areas),
         }
