@@ -94,8 +94,8 @@ class Prices(Base):
                 if area not in areas:
                     continue
                 if area not in area_prices:
-                    area_prices[area] = []
-                area_prices[area].append(
+                    area_prices[area] = {"values": []}
+                area_prices[area]["values"].append(
                     {
                         "start": start,
                         "end": end,
