@@ -2,15 +2,17 @@
 
 Python library for fetching Nord Pool Elspot and Elbas prices.
 
-#### Installing bleeding edge version from GitHub
+## Installing
 
-##### Installation
+To install from [PyPi](https://pypi.org/project/nordpool/), use
 
-`pip install git+https://github.com/kipe/nordpool.git`
+`pip install nordpool`
 
-##### Upgrading
+### To upgrade
 
-`pip install -U git+https://github.com/kipe/nordpool.git`
+To upgrade installation from PyPi, use
+
+`pip install -U nordpool`
 
 #### Example
 
