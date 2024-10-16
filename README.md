@@ -14,23 +14,18 @@ Python library for fetching Nord Pool Elspot and Elbas prices.
 
 #### Example
 
-```
+```python
 # Import library for fetching Elspot data
-from nordpool import elspot, elbas
+from nordpool import elspot
 from pprint import pprint
 
 # Initialize class for fetching Elspot prices
 prices_spot = elspot.Prices()
 
-# Initialize class for fetching Elsbas prices
-prices_bas = elbas.Prices()
-
 # Fetch hourly Elspot prices for Finland and print the resulting dictionary
+# If the prices are reported as None, it means that the prices fetched aren't yet available.
+# The library by default tries to fetch prices for tomorrow and they're released ~13:00 Swedish time.
 pprint(prices_spot.hourly(areas=['FI']))
-
-# Fetch hourly Elbas prices for Finland and print the resulting dictionary
-pprint(prices_bas.hourly(areas=['FI']))
-
 ```
 
 ###### Output
@@ -38,12 +33,6 @@ pprint(prices_bas.hourly(areas=['FI']))
 ```python
 {u'areas': {
     u'FI': {
-        u'Average': 32.54,
-        u'Max': 37.31,
-        u'Min': 30.04,
-        u'Off-peak 1': 30.74,
-        u'Off-peak 2': 32.07,
-        u'Peak': 33.9,
         u'values': [
             {u'end': datetime.datetime(2014, 10, 3, 23, 0, tzinfo=<UTC>),
              u'start': datetime.datetime(2014, 10, 3, 22, 0, tzinfo=<UTC>),
