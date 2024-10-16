@@ -155,6 +155,8 @@ class Prices(Base):
             timeout=self.timeout,
         )
         response.raise_for_status()
+        if response.status_code == 204:
+            return None
         return self._parse_json(response.json(), data_type, areas)
 
     def fetch(self, data_type, end_date=None, areas=None):
