@@ -1,5 +1,8 @@
 # nordpool
 
+![Test Status](https://github.com/kipe/nordpool/actions/workflows/python-test.yml/badge.svg?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/kipe/nordpool/badge.svg?branch=main)](https://coveralls.io/github/kipe/nordpool?branch=main)
+
 Python library for fetching Nord Pool Elspot and Elbas prices.
 
 ## Installing
