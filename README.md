@@ -5,6 +5,11 @@
 
 Python library for fetching Nord Pool Elspot and Elbas prices.
 
+## Python version
+
+The minimum supported Python version is 3.9, which receives security updates until [2025-10](https://devguide.python.org/versions/).
+The library won't install without trickery on older versions, so update your Python.
+
 ## Installing
 
 To install from [PyPi](https://pypi.org/project/nordpool/), use
