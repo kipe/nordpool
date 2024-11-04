@@ -5,10 +5,12 @@ from pytz import utc
 import requests
 from dateutil.parser import parse as parse_dt
 
-from .base import Base, CurrencyMismatch
+
+class CurrencyMismatch(ValueError):  # pylint: disable=missing-class-docstring
+    pass
 
 
-class Prices(Base):
+class Prices:
     """Class for fetching Nord Pool Elspot prices."""
 
     HOURLY = 10
@@ -46,6 +48,10 @@ class Prices(Base):
         # Nordic system price
         "SYS",
     ]
+
+    def __init__(self, currency="EUR", timeout=None):
+        self.currency = currency
+        self.timeout = timeout or 2
 
     def _parse_json(self, data, data_type, areas):
         """
