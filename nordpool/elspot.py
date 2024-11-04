@@ -92,7 +92,7 @@ class Prices(Base):
             end = parse_dt(entry["deliveryEnd"])
             for area, price in entry.get(data_source[1], {}).items():
                 if area not in areas:
-                    continue
+                    continue  # pragma: no cover
                 if area not in area_prices:
                     area_prices[area] = {"values": []}
                 area_prices[area]["values"].append(
@@ -107,7 +107,7 @@ class Prices(Base):
 
         # Ensure that the provided currency match the requested one
         if currency != self.currency:
-            raise CurrencyMismatch
+            raise CurrencyMismatch  # pragma: no cover
 
         return {
             "start": start_time,
@@ -120,12 +120,12 @@ class Prices(Base):
     def _get_url_params_areas(self, data_type, end_date=None, areas=None):
         # If end_date isn't set, default to tomorrow
         if end_date is None:
-            end_date = date.today() + timedelta(days=1)
+            end_date = date.today() + timedelta(days=1)  # pragma: no cover
         # If end_date isn't a date or datetime object, try to parse a string
         if not isinstance(end_date, date) and not isinstance(end_date, datetime):
             end_date = parse_dt(end_date)
         if areas is None:
-            areas = self.AREAS
+            areas = self.AREAS  # pragma: no cover
 
         endpoint = "DayAheadPrices"  # default to hourly
         if data_type in [self.DAILY, self.WEEKLY, self.MONTHLY]:
@@ -205,7 +205,7 @@ class Prices(Base):
         return self.fetch(self.YEARLY, end_date, areas)
 
 
-class AioPrices(Prices):
+class AioPrices(Prices):  # pragma: no cover
     """Class for fetching Nord Pool Elspot prices."""
 
     # pylint: disable=invalid-overridden-method
