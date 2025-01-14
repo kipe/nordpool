@@ -9,7 +9,7 @@ homepage = "https://github.com/kipe/nordpool"
 repository = "https://github.com/kipe/nordpool"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9,<4.0"
 python-dateutil = "^2.9.0.post0"
 requests = "^2.32.3"
 pytz = "^2024.2"
