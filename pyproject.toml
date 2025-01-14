@@ -22,7 +22,6 @@ flake8 = "^7.1.1"
 vcrpy = "^6.0.2"
 time-machine = "^2.16.0"
 coverage = "^7.6.3"
-coveralls = "^4.0.1"
 pylint = "^3.3.1"
 
 [build-system]

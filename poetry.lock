@@ -281,30 +281,8 @@ files = [
     {file = "coverage-7.6.4.tar.gz", hash = "sha256:29fc0f17b1d3fea332f8001d4558f8214af7f1d87a345f3a133c901d60347c73"},
 ]
 
-[package.dependencies]
-tomli = {version = "*", optional = true, markers = "python_full_version <= \"3.11.0a6\" and extra == \"toml\""}
-
 [package.extras]
 toml = ["tomli"]
-
-[[package]]
-name = "coveralls"
-version = "4.0.1"
-description = "Show coverage stats online via coveralls.io"
-optional = false
-python-versions = "<3.13,>=3.8"
-files = [
-    {file = "coveralls-4.0.1-py3-none-any.whl", hash = "sha256:7a6b1fa9848332c7b2221afb20f3df90272ac0167060f41b5fe90429b30b1809"},
-    {file = "coveralls-4.0.1.tar.gz", hash = "sha256:7b2a0a2bcef94f295e3cf28dcc55ca40b71c77d1c2446b538e85f0f7bc21aa69"},
-]
-
-[package.dependencies]
-coverage = {version = ">=5.0,<6.0.dev0 || >6.1,<6.1.1 || >6.1.1,<8.0", extras = ["toml"]}
-docopt = ">=0.6.1,<0.7.0"
-requests = ">=1.0.0,<3.0.0"
-
-[package.extras]
-yaml = ["pyyaml (>=3.10,<7.0)"]
 
 [[package]]
 name = "dill"
@@ -320,16 +298,6 @@ files = [
 [package.extras]
 graph = ["objgraph (>=1.7.2)"]
 profile = ["gprof2dot (>=2022.7.29)"]
-
-[[package]]
-name = "docopt"
-version = "0.6.2"
-description = "Pythonic argument parser, that will make you smile"
-optional = false
-python-versions = "*"
-files = [
-    {file = "docopt-0.6.2.tar.gz", hash = "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"},
-]
 
 [[package]]
 name = "flake8"
@@ -1152,4 +1120,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "1707887c73c042c96034a7d85f39246629098ce1052a9d5c6cc947f9d9182f72"
+content-hash = "578a7f10b31ee6ba1a5551f78b2228b0f1f5fdea5a80ae69dfbab9c9eb8f1908"
