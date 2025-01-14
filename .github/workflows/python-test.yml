@@ -39,18 +39,3 @@ jobs:
         run: |
           poetry run coverage run -m unittest discover -b
           poetry run coverage lcov
-      - name: Coveralls
-        uses: coverallsapp/github-action@v2.3.4
-        with:
-          parallel: true
-          flag-name: run-${{ matrix.test_number }}
-          file: coverage.lcov
-
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@v2.3.4
-        with:
-          parallel-finished: true
