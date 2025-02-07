@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nordpool"
-version = "0.4.4"
+version = "0.4.5"
 description = "Python library for fetching Nord Pool spot prices."
 authors = ["Kimmo Huoman <kipenroskaposti@gmail.com>"]
 license = "MIT"
@@ -12,7 +12,7 @@ repository = "https://github.com/kipe/nordpool"
 python = ">=3.9,<4.0"
 python-dateutil = "^2.9.0.post0"
 requests = "^2.32.3"
-pytz = "^2024.2"
+pytz = ">=2024.2"
 
 
 [tool.poetry.group.dev.dependencies]
