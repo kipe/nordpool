@@ -260,6 +260,8 @@ class AioPrices(Prices):  # pragma: no cover
                 - list of values (dictionary with start and endtime and value)
                 - possible other values, such as min, max, average for hourly
         """
+        if areas is None:  # If no areas are provided, inherit from the parent class
+            areas = self.AREAS
         data = await self._fetch_json(data_type, end_date, areas=areas)
         return self._parse_json(data, data_type, areas)
 
