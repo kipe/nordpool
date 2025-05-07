@@ -47,13 +47,16 @@ class Prices:
         "EE",
         "LT",
         "LV",
-        # CWE
+        # Central Western Europe
         "AT",
         "BE",
         "FR",
         "GER",
         "NL",
         "PL",
+        # South East Europe
+        "BG",
+        "TEL",
         # Nordic system price
         "SYS",
     ]
