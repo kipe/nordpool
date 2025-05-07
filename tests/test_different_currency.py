@@ -6,10 +6,12 @@ from ._utils import vcr
 
 
 class ElspotTestCase(unittest.TestCase):
+    maxDiff = None
+
     def test_different_currency(self):
         with vcr.use_cassette("different_currency.yaml"):
             elspot = Prices(currency="SEK")
-            prices = elspot.fetch(elspot.HOURLY, end_date="2024-10-15", areas=["SE1"])
+            prices = elspot.fetch(elspot.HOURLY, end_date="2025-05-07", areas=["SE1"])
             # pprint(prices)
             self.assertEqual(
                 prices,
@@ -19,228 +21,228 @@ class ElspotTestCase(unittest.TestCase):
                             "values": [
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 14, 23, 0, tzinfo=utc
+                                        2025, 5, 6, 23, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 14, 22, 0, tzinfo=utc
+                                        2025, 5, 6, 22, 0, tzinfo=utc
                                     ),
-                                    "value": 95.81,
+                                    "value": 243.58,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 0, 0, tzinfo=utc
+                                        2025, 5, 7, 0, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 14, 23, 0, tzinfo=utc
+                                        2025, 5, 6, 23, 0, tzinfo=utc
                                     ),
-                                    "value": 75.33,
+                                    "value": 155.37,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 1, 0, tzinfo=utc
+                                        2025, 5, 7, 1, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 0, 0, tzinfo=utc
+                                        2025, 5, 7, 0, 0, tzinfo=utc
                                     ),
-                                    "value": 84.55,
+                                    "value": 137.16,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 2, 0, tzinfo=utc
+                                        2025, 5, 7, 2, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 1, 0, tzinfo=utc
+                                        2025, 5, 7, 1, 0, tzinfo=utc
                                     ),
-                                    "value": 77.6,
+                                    "value": 140.54,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 3, 0, tzinfo=utc
+                                        2025, 5, 7, 3, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 2, 0, tzinfo=utc
+                                        2025, 5, 7, 2, 0, tzinfo=utc
                                     ),
-                                    "value": 119.48,
+                                    "value": 211.08,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 4, 0, tzinfo=utc
+                                        2025, 5, 7, 4, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 3, 0, tzinfo=utc
+                                        2025, 5, 7, 3, 0, tzinfo=utc
                                     ),
-                                    "value": 165.45,
+                                    "value": 602.94,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 5, 0, tzinfo=utc
+                                        2025, 5, 7, 5, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 4, 0, tzinfo=utc
+                                        2025, 5, 7, 4, 0, tzinfo=utc
                                     ),
-                                    "value": 173.64,
+                                    "value": 1218.54,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 6, 0, tzinfo=utc
+                                        2025, 5, 7, 6, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 5, 0, tzinfo=utc
+                                        2025, 5, 7, 5, 0, tzinfo=utc
                                     ),
-                                    "value": 182.97,
+                                    "value": 1569.51,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 7, 0, tzinfo=utc
+                                        2025, 5, 7, 7, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 6, 0, tzinfo=utc
+                                        2025, 5, 7, 6, 0, tzinfo=utc
                                     ),
-                                    "value": 204.48,
+                                    "value": 1345.01,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 8, 0, tzinfo=utc
+                                        2025, 5, 7, 8, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 7, 0, tzinfo=utc
+                                        2025, 5, 7, 7, 0, tzinfo=utc
                                     ),
-                                    "value": 227.47,
+                                    "value": 1005.82,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 9, 0, tzinfo=utc
+                                        2025, 5, 7, 9, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 8, 0, tzinfo=utc
+                                        2025, 5, 7, 8, 0, tzinfo=utc
                                     ),
-                                    "value": 247.83,
+                                    "value": 661.49,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 10, 0, tzinfo=utc
+                                        2025, 5, 7, 10, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 9, 0, tzinfo=utc
+                                        2025, 5, 7, 9, 0, tzinfo=utc
                                     ),
-                                    "value": 260.92,
+                                    "value": 714.27,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 11, 0, tzinfo=utc
+                                        2025, 5, 7, 11, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 10, 0, tzinfo=utc
+                                        2025, 5, 7, 10, 0, tzinfo=utc
                                     ),
-                                    "value": 272.87,
+                                    "value": 622.13,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 12, 0, tzinfo=utc
+                                        2025, 5, 7, 12, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 11, 0, tzinfo=utc
+                                        2025, 5, 7, 11, 0, tzinfo=utc
                                     ),
-                                    "value": 279.58,
+                                    "value": 339.85,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 13, 0, tzinfo=utc
+                                        2025, 5, 7, 13, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 12, 0, tzinfo=utc
+                                        2025, 5, 7, 12, 0, tzinfo=utc
                                     ),
-                                    "value": 277.87,
+                                    "value": 290.13,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 14, 0, tzinfo=utc
+                                        2025, 5, 7, 14, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 13, 0, tzinfo=utc
+                                        2025, 5, 7, 13, 0, tzinfo=utc
                                     ),
-                                    "value": 263.88,
+                                    "value": 266.36,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 15, 0, tzinfo=utc
+                                        2025, 5, 7, 15, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 14, 0, tzinfo=utc
+                                        2025, 5, 7, 14, 0, tzinfo=utc
                                     ),
-                                    "value": 252.27,
+                                    "value": 335.6,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 16, 0, tzinfo=utc
+                                        2025, 5, 7, 16, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 15, 0, tzinfo=utc
+                                        2025, 5, 7, 15, 0, tzinfo=utc
                                     ),
-                                    "value": 226.78,
+                                    "value": 914.56,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 17, 0, tzinfo=utc
+                                        2025, 5, 7, 17, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 16, 0, tzinfo=utc
+                                        2025, 5, 7, 16, 0, tzinfo=utc
                                     ),
-                                    "value": 187.41,
+                                    "value": 1018.14,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 18, 0, tzinfo=utc
+                                        2025, 5, 7, 18, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 17, 0, tzinfo=utc
+                                        2025, 5, 7, 17, 0, tzinfo=utc
                                     ),
-                                    "value": 175.24,
+                                    "value": 999.27,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 19, 0, tzinfo=utc
+                                        2025, 5, 7, 19, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 18, 0, tzinfo=utc
+                                        2025, 5, 7, 18, 0, tzinfo=utc
                                     ),
-                                    "value": 171.03,
+                                    "value": 970.82,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 20, 0, tzinfo=utc
+                                        2025, 5, 7, 20, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 19, 0, tzinfo=utc
+                                        2025, 5, 7, 19, 0, tzinfo=utc
                                     ),
-                                    "value": 170.12,
+                                    "value": 1024.13,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 21, 0, tzinfo=utc
+                                        2025, 5, 7, 21, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 20, 0, tzinfo=utc
+                                        2025, 5, 7, 20, 0, tzinfo=utc
                                     ),
-                                    "value": 160.1,
+                                    "value": 1167.07,
                                 },
                                 {
                                     "end": datetime.datetime(
-                                        2024, 10, 15, 22, 0, tzinfo=utc
+                                        2025, 5, 7, 22, 0, tzinfo=utc
                                     ),
                                     "start": datetime.datetime(
-                                        2024, 10, 15, 21, 0, tzinfo=utc
+                                        2025, 5, 7, 21, 0, tzinfo=utc
                                     ),
-                                    "value": 115.61,
+                                    "value": 1026.75,
                                 },
                             ]
                         }
                     },
                     "currency": "SEK",
-                    "end": datetime.datetime(2024, 10, 15, 22, 0, tzinfo=utc),
-                    "start": datetime.datetime(2024, 10, 14, 22, 0, tzinfo=utc),
+                    "end": datetime.datetime(2025, 5, 7, 22, 0, tzinfo=utc),
+                    "start": datetime.datetime(2025, 5, 6, 22, 0, tzinfo=utc),
                     "updated": datetime.datetime(
-                        2024, 10, 14, 11, 17, 2, 702631, tzinfo=utc
+                        2025, 5, 6, 11, 22, 13, 683352, tzinfo=utc
                     ),
                 },
             )

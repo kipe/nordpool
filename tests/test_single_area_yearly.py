@@ -6,13 +6,15 @@ from ._utils import vcr
 
 
 class ElspotTestCase(unittest.TestCase):
+    maxDiff = None
+
     def test_single_area_yearly(self):
         with vcr.use_cassette("single_area_yearly.yaml"):
             elspot = Prices()
-            prices = elspot.fetch(elspot.YEARLY, end_date="2024-10-15", areas=["FI"])
+            prices = elspot.fetch(elspot.YEARLY, end_date="2025-05-07", areas=["FI"])
             self.assertEqual(
                 prices,
-                elspot.yearly("2024-10-15", areas=["FI"]),
+                elspot.yearly("2025-05-07", areas=["FI"]),
             )
             self.assertEqual(
                 prices,
@@ -21,9 +23,14 @@ class ElspotTestCase(unittest.TestCase):
                         "FI": {
                             "values": [
                                 {
-                                    "end": datetime.datetime(2024, 10, 16, 0, 0),
+                                    "end": datetime.datetime(2025, 5, 7, 0, 0),
+                                    "start": datetime.datetime(2025, 1, 1, 0, 0),
+                                    "value": 47.37,
+                                },
+                                {
+                                    "end": datetime.datetime(2024, 12, 31, 0, 0),
                                     "start": datetime.datetime(2024, 1, 1, 0, 0),
-                                    "value": 47.97,
+                                    "value": 45.57,
                                 },
                                 {
                                     "end": datetime.datetime(2023, 12, 31, 0, 0),
@@ -45,17 +52,12 @@ class ElspotTestCase(unittest.TestCase):
                                     "start": datetime.datetime(2020, 1, 1, 0, 0),
                                     "value": 28.02,
                                 },
-                                {
-                                    "end": datetime.datetime(2019, 12, 31, 0, 0),
-                                    "start": datetime.datetime(2019, 1, 1, 0, 0),
-                                    "value": 44.04,
-                                },
                             ]
                         }
                     },
                     "currency": "EUR",
-                    "end": datetime.datetime(2024, 10, 16, 0, 0),
-                    "start": datetime.datetime(2019, 1, 1, 0, 0),
+                    "end": datetime.datetime(2025, 5, 7, 0, 0),
+                    "start": datetime.datetime(2020, 1, 1, 0, 0),
                     "updated": datetime.datetime(
                         2024, 3, 26, 13, 18, 33, 301921, tzinfo=utc
                     ),

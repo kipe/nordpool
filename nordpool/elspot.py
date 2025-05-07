@@ -83,7 +83,7 @@ class Prices:
         currency = data.get("currency", self.currency)
 
         area_prices = {}
-        data_source = ("multiAreaEntries", "entryPerArea")  # Defaults to HOURLY
+        data_source = ("multiIndexEntries", "entryPerArea")  # Defaults to HOURLY
         if data_type == self.DAILY:
             data_source = ("multiAreaDailyAggregates", "averagePerArea")
         if data_type == self.WEEKLY:
@@ -115,6 +115,10 @@ class Prices:
         if currency != self.currency:
             raise CurrencyMismatch  # pragma: no cover
 
+        if not area_prices:
+            # No data found, behavior changed when moving to using price indices
+            return None
+
         return {
             "start": start_time,
             "end": end_time,
@@ -133,7 +137,7 @@ class Prices:
         if areas is None:
             areas = self.AREAS  # pragma: no cover
 
-        endpoint = "DayAheadPrices"  # default to hourly
+        endpoint = "DayAheadPriceIndices"  # default to hourly
         if data_type in [self.DAILY, self.WEEKLY, self.MONTHLY]:
             endpoint = "AggregatePrices"
         if data_type == self.YEARLY:
@@ -143,11 +147,14 @@ class Prices:
         params = {
             "currency": self.currency,
             "market": "DayAhead",
-            "deliveryArea": ",".join(areas),
         }
 
         if data_type == self.HOURLY:
             params["date"] = end_date.strftime("%Y-%m-%d")
+            params["resolutionInMinutes"] = 60
+            params["indexNames"] = ",".join(areas)
+        else:
+            params["deliveryArea"] = ",".join(areas)
         if data_type in [self.DAILY, self.WEEKLY, self.MONTHLY]:
             params["year"] = end_date.strftime("%Y")
         return api_url, params, areas

@@ -11,61 +11,28 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
     method: GET
-    uri: https://dataportal-api.nordpoolgroup.com/api/GetAnnuals?currency=EUR&market=DayAhead&deliveryArea=FI
-  response:
-    body:
-      string: ''
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '0'
-      Date:
-      - Tue, 15 Oct 2024 18:17:35 GMT
-      Request-Context:
-      - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
-      Set-Cookie:
-      - route=1729016256.989.28.758975|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Thu,
-        17-Oct-24 18:17:35 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
-      Strict-Transport-Security:
-      - max-age=31536000
-    status:
-      code: 404
-      message: Not Found
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.3
-    method: GET
     uri: https://dataportal-api.nordpoolgroup.com/api/AggregatePrices/GetAnnuals?currency=EUR&market=DayAhead&deliveryArea=FI
   response:
     body:
-      string: '{"updatedAt":"2024-03-26T13:18:33.301921Z","prices":[{"year":2024,"deliveryStart":"2024-01-01","deliveryEnd":"2024-10-16","averagePerArea":{"FI":47.97},"maxPerArea":{"FI":1896},"minPerArea":{"FI":-20.01}},{"year":2023,"deliveryStart":"2023-01-01","deliveryEnd":"2023-12-31","averagePerArea":{"FI":56.47},"maxPerArea":{"FI":777.18},"minPerArea":{"FI":-500}},{"year":2022,"deliveryStart":"2022-01-01","deliveryEnd":"2022-12-31","averagePerArea":{"FI":154.04},"maxPerArea":{"FI":861.14},"minPerArea":{"FI":-2.08}},{"year":2021,"deliveryStart":"2021-01-01","deliveryEnd":"2021-12-31","averagePerArea":{"FI":72.34},"maxPerArea":{"FI":1000.07},"minPerArea":{"FI":-1.41}},{"year":2020,"deliveryStart":"2020-01-01","deliveryEnd":"2020-12-31","averagePerArea":{"FI":28.02},"maxPerArea":{"FI":254.44},"minPerArea":{"FI":-1.73}},{"year":2019,"deliveryStart":"2019-01-01","deliveryEnd":"2019-12-31","averagePerArea":{"FI":44.04},"maxPerArea":{"FI":199.98},"minPerArea":{"FI":0.12}}]}'
+      string: '{"updatedAt":"2024-03-26T13:18:33.301921Z","prices":[{"year":2025,"deliveryStart":"2025-01-01","deliveryEnd":"2025-05-07","averagePerArea":{"FI":47.37},"maxPerArea":{"FI":382.06},"minPerArea":{"FI":-10.01}},{"year":2024,"deliveryStart":"2024-01-01","deliveryEnd":"2024-12-31","averagePerArea":{"FI":45.57},"maxPerArea":{"FI":1896},"minPerArea":{"FI":-20.01}},{"year":2023,"deliveryStart":"2023-01-01","deliveryEnd":"2023-12-31","averagePerArea":{"FI":56.47},"maxPerArea":{"FI":777.18},"minPerArea":{"FI":-500}},{"year":2022,"deliveryStart":"2022-01-01","deliveryEnd":"2022-12-31","averagePerArea":{"FI":154.04},"maxPerArea":{"FI":861.14},"minPerArea":{"FI":-2.08}},{"year":2021,"deliveryStart":"2021-01-01","deliveryEnd":"2021-12-31","averagePerArea":{"FI":72.34},"maxPerArea":{"FI":1000.07},"minPerArea":{"FI":-1.41}},{"year":2020,"deliveryStart":"2020-01-01","deliveryEnd":"2020-12-31","averagePerArea":{"FI":28.02},"maxPerArea":{"FI":254.44},"minPerArea":{"FI":-1.73}}]}'
     headers:
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 15 Oct 2024 18:20:26 GMT
+      - Wed, 07 May 2025 07:50:43 GMT
       Request-Context:
       - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
       Set-Cookie:
-      - route=1729016427.69.29.745886|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Thu,
-        17-Oct-24 18:20:26 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
+      - route=1746604244.301.29.658278|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
+        09-May-25 07:50:43 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
       Strict-Transport-Security:
       - max-age=31536000
       Vary:
       - Accept-Encoding
+      content-length:
+      - '973'
     status:
       code: 200
       message: OK
@@ -84,27 +51,27 @@ interactions:
     uri: https://dataportal-api.nordpoolgroup.com/api/AggregatePrices/GetAnnuals?currency=EUR&market=DayAhead&deliveryArea=FI
   response:
     body:
-      string: '{"updatedAt":"2024-03-26T13:18:33.301921Z","prices":[{"year":2024,"deliveryStart":"2024-01-01","deliveryEnd":"2024-10-16","averagePerArea":{"FI":47.97},"maxPerArea":{"FI":1896},"minPerArea":{"FI":-20.01}},{"year":2023,"deliveryStart":"2023-01-01","deliveryEnd":"2023-12-31","averagePerArea":{"FI":56.47},"maxPerArea":{"FI":777.18},"minPerArea":{"FI":-500}},{"year":2022,"deliveryStart":"2022-01-01","deliveryEnd":"2022-12-31","averagePerArea":{"FI":154.04},"maxPerArea":{"FI":861.14},"minPerArea":{"FI":-2.08}},{"year":2021,"deliveryStart":"2021-01-01","deliveryEnd":"2021-12-31","averagePerArea":{"FI":72.34},"maxPerArea":{"FI":1000.07},"minPerArea":{"FI":-1.41}},{"year":2020,"deliveryStart":"2020-01-01","deliveryEnd":"2020-12-31","averagePerArea":{"FI":28.02},"maxPerArea":{"FI":254.44},"minPerArea":{"FI":-1.73}},{"year":2019,"deliveryStart":"2019-01-01","deliveryEnd":"2019-12-31","averagePerArea":{"FI":44.04},"maxPerArea":{"FI":199.98},"minPerArea":{"FI":0.12}}]}'
+      string: '{"updatedAt":"2024-03-26T13:18:33.301921Z","prices":[{"year":2025,"deliveryStart":"2025-01-01","deliveryEnd":"2025-05-07","averagePerArea":{"FI":47.37},"maxPerArea":{"FI":382.06},"minPerArea":{"FI":-10.01}},{"year":2024,"deliveryStart":"2024-01-01","deliveryEnd":"2024-12-31","averagePerArea":{"FI":45.57},"maxPerArea":{"FI":1896},"minPerArea":{"FI":-20.01}},{"year":2023,"deliveryStart":"2023-01-01","deliveryEnd":"2023-12-31","averagePerArea":{"FI":56.47},"maxPerArea":{"FI":777.18},"minPerArea":{"FI":-500}},{"year":2022,"deliveryStart":"2022-01-01","deliveryEnd":"2022-12-31","averagePerArea":{"FI":154.04},"maxPerArea":{"FI":861.14},"minPerArea":{"FI":-2.08}},{"year":2021,"deliveryStart":"2021-01-01","deliveryEnd":"2021-12-31","averagePerArea":{"FI":72.34},"maxPerArea":{"FI":1000.07},"minPerArea":{"FI":-1.41}},{"year":2020,"deliveryStart":"2020-01-01","deliveryEnd":"2020-12-31","averagePerArea":{"FI":28.02},"maxPerArea":{"FI":254.44},"minPerArea":{"FI":-1.73}}]}'
     headers:
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 15 Oct 2024 18:23:42 GMT
+      - Wed, 07 May 2025 07:50:55 GMT
       Request-Context:
       - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
       Set-Cookie:
-      - route=1729016623.423.31.238620|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Thu,
-        17-Oct-24 18:23:42 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
+      - route=1746604256.212.29.284064|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
+        09-May-25 07:50:55 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
       Strict-Transport-Security:
       - max-age=31536000
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      content-length:
+      - '973'
     status:
       code: 200
       message: OK
