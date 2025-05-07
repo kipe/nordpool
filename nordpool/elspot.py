@@ -6,8 +6,17 @@ import requests
 from dateutil.parser import parse as parse_dt
 
 
-class CurrencyMismatch(ValueError):  # pylint: disable=missing-class-docstring
-    pass
+class UnsupportedResolution(ValueError):
+    """
+    Raised when the requested resolution is not supported.
+    Supported resolutions are 15, 30 and 60 minutes.
+    """
+
+
+class CurrencyMismatch(ValueError):
+    """
+    Raised when the currency of the data does not match the currency of the request.
+    """
 
 
 class Prices:
@@ -48,6 +57,8 @@ class Prices:
         # Nordic system price
         "SYS",
     ]
+
+    SUPPORTED_RESOLUTIONS = [15, 30, 60]
 
     def __init__(self, currency="EUR", timeout=None):
         self.currency = currency
@@ -127,7 +138,13 @@ class Prices:
             "areas": area_prices,
         }
 
-    def _get_url_params_areas(self, data_type, end_date=None, areas=None):
+    def _get_url_params_areas(
+        self,
+        data_type,
+        end_date=None,
+        areas=None,
+        resolution=60,
+    ):
         # If end_date isn't set, default to tomorrow
         if end_date is None:
             end_date = date.today() + timedelta(days=1)  # pragma: no cover
@@ -136,6 +153,11 @@ class Prices:
             end_date = parse_dt(end_date)
         if areas is None:
             areas = self.AREAS  # pragma: no cover
+        if resolution not in self.SUPPORTED_RESOLUTIONS:
+            raise UnsupportedResolution(
+                f"Resolution {resolution} is not supported, "
+                f"must be one of {self.SUPPORTED_RESOLUTIONS}"
+            )
 
         endpoint = "DayAheadPriceIndices"  # default to hourly
         if data_type in [self.DAILY, self.WEEKLY, self.MONTHLY]:
@@ -151,7 +173,7 @@ class Prices:
 
         if data_type == self.HOURLY:
             params["date"] = end_date.strftime("%Y-%m-%d")
-            params["resolutionInMinutes"] = 60
+            params["resolutionInMinutes"] = resolution
             params["indexNames"] = ",".join(areas)
         else:
             params["deliveryArea"] = ",".join(areas)
@@ -159,9 +181,11 @@ class Prices:
             params["year"] = end_date.strftime("%Y")
         return api_url, params, areas
 
-    def _fetch_json(self, data_type, end_date=None, areas=None):
+    def _fetch_json(self, data_type, end_date=None, areas=None, resolution=60):
         """Fetch JSON from API"""
-        api_url, params, areas = self._get_url_params_areas(data_type, end_date, areas)
+        api_url, params, areas = self._get_url_params_areas(
+            data_type, end_date, areas, resolution
+        )
         response = requests.get(
             api_url,
             params=params,
@@ -169,15 +193,17 @@ class Prices:
         )
         response.raise_for_status()
         if response.status_code == 204:
-            return None
+            # "Old" API returns 204 for no data
+            return None  # pragma: no cover
         return self._parse_json(response.json(), data_type, areas)
 
-    def fetch(self, data_type, end_date=None, areas=None):
+    def fetch(self, data_type=None, end_date=None, areas=None, resolution=60):
         """
         Fetch data from API.
         Inputs:
             - data_type
                 one of Prices.HOURLY, Prices.DAILY etc
+                defaults to Prices.HOURLY (used for hourly and sub-hourly data)
             - end_date
                 datetime to end the data fetching
                 defaults to tomorrow
@@ -195,7 +221,10 @@ class Prices:
                 - possible other values, such as min, max, average for hourly
         """
 
-        return self._fetch_json(data_type, end_date, areas)
+        if data_type is None:
+            data_type = self.HOURLY
+
+        return self._fetch_json(data_type, end_date, areas, resolution)
 
     def hourly(self, end_date=None, areas=None):
         """Helper to fetch hourly data, see Prices.fetch()"""
@@ -238,20 +267,23 @@ class AioPrices(Prices):  # pragma: no cover
         # Httpx and asks
         return resp.json()
 
-    async def _fetch_json(self, data_type, end_date=None, areas=None):
+    async def _fetch_json(self, data_type, end_date=None, areas=None, resolution=60):
         """Fetch JSON from API"""
-        api_url, params, areas = self._get_url_params_areas(data_type, end_date, areas)
+        api_url, params, areas = self._get_url_params_areas(
+            data_type, end_date, areas, resolution
+        )
         return await self._io(
             api_url,
             params,
         )
 
-    async def fetch(self, data_type, end_date=None, areas=None):
+    async def fetch(self, data_type=None, end_date=None, areas=None, resolution=60):
         """
         Fetch data from API.
         Inputs:
             - data_type
                 API page id, one of Prices.HOURLY, Prices.DAILY etc
+                defaults to Prices.HOURLY, used for hourly and sub-hourly data
             - end_date
                 datetime to end the data fetching
                 defaults to tomorrow
@@ -269,7 +301,15 @@ class AioPrices(Prices):  # pragma: no cover
         """
         if areas is None:  # If no areas are provided, inherit from the parent class
             areas = self.AREAS
-        data = await self._fetch_json(data_type, end_date, areas=areas)
+        if data_type is None:
+            data_type = self.HOURLY
+
+        data = await self._fetch_json(
+            data_type,
+            end_date,
+            areas=areas,
+            resolution=resolution,
+        )
         return self._parse_json(data, data_type, areas)
 
     async def hourly(self, end_date=None, areas=None):
