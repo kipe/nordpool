@@ -58,6 +58,8 @@ class Prices:
         "BG",
         "TEL",
         # Nordic system price
+        # NOTE: Some API endpoints use "SYSTEM" for "SYS",
+        # this is handled internally and area "SYS" should be used by external code
         "SYS",
     ]
 
@@ -111,6 +113,10 @@ class Prices:
             start = parse_dt(entry["deliveryStart"])
             end = parse_dt(entry["deliveryEnd"])
             for area, price in entry.get(data_source[1], {}).items():
+                # Price indices -endpoint uses "SYSTEM" for "SYS"
+                # -> replace it when responding
+                if area == "SYSTEM":
+                    area = "SYS"
                 if area not in areas:
                     continue  # pragma: no cover
                 if area not in area_prices:
@@ -177,7 +183,12 @@ class Prices:
         if data_type == self.HOURLY:
             params["date"] = end_date.strftime("%Y-%m-%d")
             params["resolutionInMinutes"] = resolution
-            params["indexNames"] = ",".join(areas)
+            params["indexNames"] = ",".join(
+                # Price indices -endpoint uses "SYSTEM" for "SYS"
+                # -> replace it when requesting
+                "SYSTEM" if area == "SYS" else area
+                for area in areas
+            )
         else:
             params["deliveryArea"] = ",".join(areas)
         if data_type in [self.DAILY, self.WEEKLY, self.MONTHLY]:

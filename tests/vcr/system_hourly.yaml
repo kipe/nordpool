@@ -1,0 +1,80 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://dataportal-api.nordpoolgroup.com/api/DayAheadPriceIndices?currency=EUR&market=DayAhead&date=2025-05-07&resolutionInMinutes=60&indexNames=SYSTEM
+  response:
+    body:
+      string: '{"deliveryDateCET":"2025-05-07","version":2,"updatedAt":"2025-05-06T10:56:31.0120062Z","market":"DayAhead","indexNames":["SYSTEM"],"currency":"EUR","resolutionInMinutes":60,"areaStates":[{"state":"Final","areas":["SYSTEM"]}],"multiIndexEntries":[{"deliveryStart":"2025-05-06T22:00:00Z","deliveryEnd":"2025-05-06T23:00:00Z","entryPerArea":{"SYSTEM":74.2}},{"deliveryStart":"2025-05-06T23:00:00Z","deliveryEnd":"2025-05-07T00:00:00Z","entryPerArea":{"SYSTEM":68.4}},{"deliveryStart":"2025-05-07T00:00:00Z","deliveryEnd":"2025-05-07T01:00:00Z","entryPerArea":{"SYSTEM":67.47}},{"deliveryStart":"2025-05-07T01:00:00Z","deliveryEnd":"2025-05-07T02:00:00Z","entryPerArea":{"SYSTEM":68.04}},{"deliveryStart":"2025-05-07T02:00:00Z","deliveryEnd":"2025-05-07T03:00:00Z","entryPerArea":{"SYSTEM":70.3}},{"deliveryStart":"2025-05-07T03:00:00Z","deliveryEnd":"2025-05-07T04:00:00Z","entryPerArea":{"SYSTEM":87.57}},{"deliveryStart":"2025-05-07T04:00:00Z","deliveryEnd":"2025-05-07T05:00:00Z","entryPerArea":{"SYSTEM":116.11}},{"deliveryStart":"2025-05-07T05:00:00Z","deliveryEnd":"2025-05-07T06:00:00Z","entryPerArea":{"SYSTEM":143.0}},{"deliveryStart":"2025-05-07T06:00:00Z","deliveryEnd":"2025-05-07T07:00:00Z","entryPerArea":{"SYSTEM":123.89}},{"deliveryStart":"2025-05-07T07:00:00Z","deliveryEnd":"2025-05-07T08:00:00Z","entryPerArea":{"SYSTEM":94.98}},{"deliveryStart":"2025-05-07T08:00:00Z","deliveryEnd":"2025-05-07T09:00:00Z","entryPerArea":{"SYSTEM":79.98}},{"deliveryStart":"2025-05-07T09:00:00Z","deliveryEnd":"2025-05-07T10:00:00Z","entryPerArea":{"SYSTEM":74.28}},{"deliveryStart":"2025-05-07T10:00:00Z","deliveryEnd":"2025-05-07T11:00:00Z","entryPerArea":{"SYSTEM":64.68}},{"deliveryStart":"2025-05-07T11:00:00Z","deliveryEnd":"2025-05-07T12:00:00Z","entryPerArea":{"SYSTEM":60.92}},{"deliveryStart":"2025-05-07T12:00:00Z","deliveryEnd":"2025-05-07T13:00:00Z","entryPerArea":{"SYSTEM":62.85}},{"deliveryStart":"2025-05-07T13:00:00Z","deliveryEnd":"2025-05-07T14:00:00Z","entryPerArea":{"SYSTEM":67.29}},{"deliveryStart":"2025-05-07T14:00:00Z","deliveryEnd":"2025-05-07T15:00:00Z","entryPerArea":{"SYSTEM":67.69}},{"deliveryStart":"2025-05-07T15:00:00Z","deliveryEnd":"2025-05-07T16:00:00Z","entryPerArea":{"SYSTEM":86.97}},{"deliveryStart":"2025-05-07T16:00:00Z","deliveryEnd":"2025-05-07T17:00:00Z","entryPerArea":{"SYSTEM":105.3}},{"deliveryStart":"2025-05-07T17:00:00Z","deliveryEnd":"2025-05-07T18:00:00Z","entryPerArea":{"SYSTEM":121.47}},{"deliveryStart":"2025-05-07T18:00:00Z","deliveryEnd":"2025-05-07T19:00:00Z","entryPerArea":{"SYSTEM":132.21}},{"deliveryStart":"2025-05-07T19:00:00Z","deliveryEnd":"2025-05-07T20:00:00Z","entryPerArea":{"SYSTEM":110.74}},{"deliveryStart":"2025-05-07T20:00:00Z","deliveryEnd":"2025-05-07T21:00:00Z","entryPerArea":{"SYSTEM":99.95}},{"deliveryStart":"2025-05-07T21:00:00Z","deliveryEnd":"2025-05-07T22:00:00Z","entryPerArea":{"SYSTEM":86.46}}]}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 07 May 2025 08:40:28 GMT
+      Request-Context:
+      - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
+      Set-Cookie:
+      - route=1746607229.403.28.153032|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
+        09-May-25 08:40:28 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '2889'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://dataportal-api.nordpoolgroup.com/api/DayAheadPriceIndices?currency=EUR&market=DayAhead&date=2025-05-07&resolutionInMinutes=60&indexNames=SYSTEM
+  response:
+    body:
+      string: '{"deliveryDateCET":"2025-05-07","version":2,"updatedAt":"2025-05-06T10:56:31.0120062Z","market":"DayAhead","indexNames":["SYSTEM"],"currency":"EUR","resolutionInMinutes":60,"areaStates":[{"state":"Final","areas":["SYSTEM"]}],"multiIndexEntries":[{"deliveryStart":"2025-05-06T22:00:00Z","deliveryEnd":"2025-05-06T23:00:00Z","entryPerArea":{"SYSTEM":74.2}},{"deliveryStart":"2025-05-06T23:00:00Z","deliveryEnd":"2025-05-07T00:00:00Z","entryPerArea":{"SYSTEM":68.4}},{"deliveryStart":"2025-05-07T00:00:00Z","deliveryEnd":"2025-05-07T01:00:00Z","entryPerArea":{"SYSTEM":67.47}},{"deliveryStart":"2025-05-07T01:00:00Z","deliveryEnd":"2025-05-07T02:00:00Z","entryPerArea":{"SYSTEM":68.04}},{"deliveryStart":"2025-05-07T02:00:00Z","deliveryEnd":"2025-05-07T03:00:00Z","entryPerArea":{"SYSTEM":70.3}},{"deliveryStart":"2025-05-07T03:00:00Z","deliveryEnd":"2025-05-07T04:00:00Z","entryPerArea":{"SYSTEM":87.57}},{"deliveryStart":"2025-05-07T04:00:00Z","deliveryEnd":"2025-05-07T05:00:00Z","entryPerArea":{"SYSTEM":116.11}},{"deliveryStart":"2025-05-07T05:00:00Z","deliveryEnd":"2025-05-07T06:00:00Z","entryPerArea":{"SYSTEM":143.0}},{"deliveryStart":"2025-05-07T06:00:00Z","deliveryEnd":"2025-05-07T07:00:00Z","entryPerArea":{"SYSTEM":123.89}},{"deliveryStart":"2025-05-07T07:00:00Z","deliveryEnd":"2025-05-07T08:00:00Z","entryPerArea":{"SYSTEM":94.98}},{"deliveryStart":"2025-05-07T08:00:00Z","deliveryEnd":"2025-05-07T09:00:00Z","entryPerArea":{"SYSTEM":79.98}},{"deliveryStart":"2025-05-07T09:00:00Z","deliveryEnd":"2025-05-07T10:00:00Z","entryPerArea":{"SYSTEM":74.28}},{"deliveryStart":"2025-05-07T10:00:00Z","deliveryEnd":"2025-05-07T11:00:00Z","entryPerArea":{"SYSTEM":64.68}},{"deliveryStart":"2025-05-07T11:00:00Z","deliveryEnd":"2025-05-07T12:00:00Z","entryPerArea":{"SYSTEM":60.92}},{"deliveryStart":"2025-05-07T12:00:00Z","deliveryEnd":"2025-05-07T13:00:00Z","entryPerArea":{"SYSTEM":62.85}},{"deliveryStart":"2025-05-07T13:00:00Z","deliveryEnd":"2025-05-07T14:00:00Z","entryPerArea":{"SYSTEM":67.29}},{"deliveryStart":"2025-05-07T14:00:00Z","deliveryEnd":"2025-05-07T15:00:00Z","entryPerArea":{"SYSTEM":67.69}},{"deliveryStart":"2025-05-07T15:00:00Z","deliveryEnd":"2025-05-07T16:00:00Z","entryPerArea":{"SYSTEM":86.97}},{"deliveryStart":"2025-05-07T16:00:00Z","deliveryEnd":"2025-05-07T17:00:00Z","entryPerArea":{"SYSTEM":105.3}},{"deliveryStart":"2025-05-07T17:00:00Z","deliveryEnd":"2025-05-07T18:00:00Z","entryPerArea":{"SYSTEM":121.47}},{"deliveryStart":"2025-05-07T18:00:00Z","deliveryEnd":"2025-05-07T19:00:00Z","entryPerArea":{"SYSTEM":132.21}},{"deliveryStart":"2025-05-07T19:00:00Z","deliveryEnd":"2025-05-07T20:00:00Z","entryPerArea":{"SYSTEM":110.74}},{"deliveryStart":"2025-05-07T20:00:00Z","deliveryEnd":"2025-05-07T21:00:00Z","entryPerArea":{"SYSTEM":99.95}},{"deliveryStart":"2025-05-07T21:00:00Z","deliveryEnd":"2025-05-07T22:00:00Z","entryPerArea":{"SYSTEM":86.46}}]}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 07 May 2025 08:40:28 GMT
+      Request-Context:
+      - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
+      Set-Cookie:
+      - route=1746607229.513.29.612483|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
+        09-May-25 08:40:28 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '2889'
+    status:
+      code: 200
+      message: OK
+version: 1
