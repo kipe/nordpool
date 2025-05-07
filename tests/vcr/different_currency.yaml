@@ -11,32 +11,30 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
     method: GET
-    uri: https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices?currency=SEK&market=DayAhead&deliveryArea=SE1&date=2024-10-15
+    uri: https://dataportal-api.nordpoolgroup.com/api/DayAheadPriceIndices?currency=SEK&market=DayAhead&date=2025-05-07&resolutionInMinutes=60&indexNames=SE1
   response:
     body:
-      string: '{"deliveryDateCET":"2024-10-15","version":3,"updatedAt":"2024-10-14T11:17:02.7026319Z","deliveryAreas":["SE1"],"market":"DayAhead","multiAreaEntries":[{"deliveryStart":"2024-10-14T22:00:00Z","deliveryEnd":"2024-10-14T23:00:00Z","entryPerArea":{"SE1":95.81}},{"deliveryStart":"2024-10-14T23:00:00Z","deliveryEnd":"2024-10-15T00:00:00Z","entryPerArea":{"SE1":75.33}},{"deliveryStart":"2024-10-15T00:00:00Z","deliveryEnd":"2024-10-15T01:00:00Z","entryPerArea":{"SE1":84.55}},{"deliveryStart":"2024-10-15T01:00:00Z","deliveryEnd":"2024-10-15T02:00:00Z","entryPerArea":{"SE1":77.60}},{"deliveryStart":"2024-10-15T02:00:00Z","deliveryEnd":"2024-10-15T03:00:00Z","entryPerArea":{"SE1":119.48}},{"deliveryStart":"2024-10-15T03:00:00Z","deliveryEnd":"2024-10-15T04:00:00Z","entryPerArea":{"SE1":165.45}},{"deliveryStart":"2024-10-15T04:00:00Z","deliveryEnd":"2024-10-15T05:00:00Z","entryPerArea":{"SE1":173.64}},{"deliveryStart":"2024-10-15T05:00:00Z","deliveryEnd":"2024-10-15T06:00:00Z","entryPerArea":{"SE1":182.97}},{"deliveryStart":"2024-10-15T06:00:00Z","deliveryEnd":"2024-10-15T07:00:00Z","entryPerArea":{"SE1":204.48}},{"deliveryStart":"2024-10-15T07:00:00Z","deliveryEnd":"2024-10-15T08:00:00Z","entryPerArea":{"SE1":227.47}},{"deliveryStart":"2024-10-15T08:00:00Z","deliveryEnd":"2024-10-15T09:00:00Z","entryPerArea":{"SE1":247.83}},{"deliveryStart":"2024-10-15T09:00:00Z","deliveryEnd":"2024-10-15T10:00:00Z","entryPerArea":{"SE1":260.92}},{"deliveryStart":"2024-10-15T10:00:00Z","deliveryEnd":"2024-10-15T11:00:00Z","entryPerArea":{"SE1":272.87}},{"deliveryStart":"2024-10-15T11:00:00Z","deliveryEnd":"2024-10-15T12:00:00Z","entryPerArea":{"SE1":279.58}},{"deliveryStart":"2024-10-15T12:00:00Z","deliveryEnd":"2024-10-15T13:00:00Z","entryPerArea":{"SE1":277.87}},{"deliveryStart":"2024-10-15T13:00:00Z","deliveryEnd":"2024-10-15T14:00:00Z","entryPerArea":{"SE1":263.88}},{"deliveryStart":"2024-10-15T14:00:00Z","deliveryEnd":"2024-10-15T15:00:00Z","entryPerArea":{"SE1":252.27}},{"deliveryStart":"2024-10-15T15:00:00Z","deliveryEnd":"2024-10-15T16:00:00Z","entryPerArea":{"SE1":226.78}},{"deliveryStart":"2024-10-15T16:00:00Z","deliveryEnd":"2024-10-15T17:00:00Z","entryPerArea":{"SE1":187.41}},{"deliveryStart":"2024-10-15T17:00:00Z","deliveryEnd":"2024-10-15T18:00:00Z","entryPerArea":{"SE1":175.24}},{"deliveryStart":"2024-10-15T18:00:00Z","deliveryEnd":"2024-10-15T19:00:00Z","entryPerArea":{"SE1":171.03}},{"deliveryStart":"2024-10-15T19:00:00Z","deliveryEnd":"2024-10-15T20:00:00Z","entryPerArea":{"SE1":170.12}},{"deliveryStart":"2024-10-15T20:00:00Z","deliveryEnd":"2024-10-15T21:00:00Z","entryPerArea":{"SE1":160.10}},{"deliveryStart":"2024-10-15T21:00:00Z","deliveryEnd":"2024-10-15T22:00:00Z","entryPerArea":{"SE1":115.61}}],"blockPriceAggregates":[{"blockName":"Off-peak
-        1","deliveryStart":"2024-10-14T22:00:00Z","deliveryEnd":"2024-10-15T06:00:00Z","averagePricePerArea":{"SE1":{"average":121.85,"min":75.33,"max":182.97}}},{"blockName":"Peak","deliveryStart":"2024-10-15T06:00:00Z","deliveryEnd":"2024-10-15T18:00:00Z","averagePricePerArea":{"SE1":{"average":239.72,"min":175.24,"max":279.58}}},{"blockName":"Off-peak
-        2","deliveryStart":"2024-10-15T18:00:00Z","deliveryEnd":"2024-10-15T22:00:00Z","averagePricePerArea":{"SE1":{"average":154.22,"min":115.61,"max":171.03}}}],"currency":"SEK","exchangeRate":11.37896,"areaStates":[{"state":"Final","areas":["SE1"]}],"areaAverages":[{"areaCode":"SE1","price":186.18}]}'
+      string: '{"deliveryDateCET":"2025-05-07","version":3,"updatedAt":"2025-05-06T11:22:13.6833528Z","market":"DayAhead","indexNames":["SE1"],"currency":"SEK","resolutionInMinutes":60,"areaStates":[{"state":"Final","areas":["SE1"]}],"multiIndexEntries":[{"deliveryStart":"2025-05-06T22:00:00Z","deliveryEnd":"2025-05-06T23:00:00Z","entryPerArea":{"SE1":243.58}},{"deliveryStart":"2025-05-06T23:00:00Z","deliveryEnd":"2025-05-07T00:00:00Z","entryPerArea":{"SE1":155.37}},{"deliveryStart":"2025-05-07T00:00:00Z","deliveryEnd":"2025-05-07T01:00:00Z","entryPerArea":{"SE1":137.16}},{"deliveryStart":"2025-05-07T01:00:00Z","deliveryEnd":"2025-05-07T02:00:00Z","entryPerArea":{"SE1":140.54}},{"deliveryStart":"2025-05-07T02:00:00Z","deliveryEnd":"2025-05-07T03:00:00Z","entryPerArea":{"SE1":211.08}},{"deliveryStart":"2025-05-07T03:00:00Z","deliveryEnd":"2025-05-07T04:00:00Z","entryPerArea":{"SE1":602.94}},{"deliveryStart":"2025-05-07T04:00:00Z","deliveryEnd":"2025-05-07T05:00:00Z","entryPerArea":{"SE1":1218.54}},{"deliveryStart":"2025-05-07T05:00:00Z","deliveryEnd":"2025-05-07T06:00:00Z","entryPerArea":{"SE1":1569.51}},{"deliveryStart":"2025-05-07T06:00:00Z","deliveryEnd":"2025-05-07T07:00:00Z","entryPerArea":{"SE1":1345.01}},{"deliveryStart":"2025-05-07T07:00:00Z","deliveryEnd":"2025-05-07T08:00:00Z","entryPerArea":{"SE1":1005.82}},{"deliveryStart":"2025-05-07T08:00:00Z","deliveryEnd":"2025-05-07T09:00:00Z","entryPerArea":{"SE1":661.49}},{"deliveryStart":"2025-05-07T09:00:00Z","deliveryEnd":"2025-05-07T10:00:00Z","entryPerArea":{"SE1":714.27}},{"deliveryStart":"2025-05-07T10:00:00Z","deliveryEnd":"2025-05-07T11:00:00Z","entryPerArea":{"SE1":622.13}},{"deliveryStart":"2025-05-07T11:00:00Z","deliveryEnd":"2025-05-07T12:00:00Z","entryPerArea":{"SE1":339.85}},{"deliveryStart":"2025-05-07T12:00:00Z","deliveryEnd":"2025-05-07T13:00:00Z","entryPerArea":{"SE1":290.13}},{"deliveryStart":"2025-05-07T13:00:00Z","deliveryEnd":"2025-05-07T14:00:00Z","entryPerArea":{"SE1":266.36}},{"deliveryStart":"2025-05-07T14:00:00Z","deliveryEnd":"2025-05-07T15:00:00Z","entryPerArea":{"SE1":335.60}},{"deliveryStart":"2025-05-07T15:00:00Z","deliveryEnd":"2025-05-07T16:00:00Z","entryPerArea":{"SE1":914.56}},{"deliveryStart":"2025-05-07T16:00:00Z","deliveryEnd":"2025-05-07T17:00:00Z","entryPerArea":{"SE1":1018.14}},{"deliveryStart":"2025-05-07T17:00:00Z","deliveryEnd":"2025-05-07T18:00:00Z","entryPerArea":{"SE1":999.27}},{"deliveryStart":"2025-05-07T18:00:00Z","deliveryEnd":"2025-05-07T19:00:00Z","entryPerArea":{"SE1":970.82}},{"deliveryStart":"2025-05-07T19:00:00Z","deliveryEnd":"2025-05-07T20:00:00Z","entryPerArea":{"SE1":1024.13}},{"deliveryStart":"2025-05-07T20:00:00Z","deliveryEnd":"2025-05-07T21:00:00Z","entryPerArea":{"SE1":1167.07}},{"deliveryStart":"2025-05-07T21:00:00Z","deliveryEnd":"2025-05-07T22:00:00Z","entryPerArea":{"SE1":1026.75}}]}'
     headers:
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 06:50:02 GMT
+      - Wed, 07 May 2025 07:48:01 GMT
       Request-Context:
       - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
       Set-Cookie:
-      - route=1729061403.917.28.454779|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
-        18-Oct-24 06:50:02 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
+      - route=1746604082.782.28.383746|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
+        09-May-25 07:48:01 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
       Strict-Transport-Security:
       - max-age=31536000
       Transfer-Encoding:
       - chunked
       Vary:
       - Accept-Encoding
+      content-length:
+      - '2841'
     status:
       code: 200
       message: OK

@@ -11,23 +11,31 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
     method: GET
-    uri: https://dataportal-api.nordpoolgroup.com/api/DayAheadPrices?currency=EUR&market=DayAhead&deliveryArea=FI&date=2024-10-17
+    uri: https://dataportal-api.nordpoolgroup.com/api/DayAheadPriceIndices?currency=EUR&market=DayAhead&date=2025-05-10&resolutionInMinutes=60&indexNames=FI
   response:
     body:
-      string: ''
+      string: '{"deliveryDateCET":"2025-05-10","version":0,"updatedAt":"2025-05-07T07:47:27.3376992Z","market":"DayAhead","indexNames":["FI"],"currency":"EUR","resolutionInMinutes":60,"areaStates":[],"multiIndexEntries":[]}'
     headers:
       Connection:
       - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
       Date:
-      - Wed, 16 Oct 2024 06:47:32 GMT
+      - Wed, 07 May 2025 07:47:27 GMT
       Request-Context:
       - appId=cid-v1:ddfe5a25-b9d8-4f0e-b951-f04e01c2922f
       Set-Cookie:
-      - route=1729061253.345.30.936500|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
-        18-Oct-24 06:47:32 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
+      - route=1746604048.336.28.514816|9898ac1b7e0bd8fc3874537f2a76b591; Expires=Fri,
+        09-May-25 07:47:27 GMT; Max-Age=172800; Path=/; Secure; HttpOnly
       Strict-Transport-Security:
       - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      content-length:
+      - '208'
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
 version: 1
