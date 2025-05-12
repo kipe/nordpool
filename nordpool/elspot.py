@@ -39,6 +39,7 @@ class Prices:
         "NO2",
         "NO3",
         "NO4",
+        "NO5",
         "SE1",
         "SE2",
         "SE3",
