@@ -277,7 +277,7 @@ class AioPrices(Prices):  # pragma: no cover
 
         resp = await self.client.get(url, params=params)
         # aiohttp
-        if inspect.isawaitable(resp.json()):
+        if inspect.iscoroutinefunction(resp.json):
             return await resp.json()
         # Httpx and asks
         return resp.json()
